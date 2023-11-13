@@ -1,17 +1,40 @@
 import React from 'react';
-import Business from './Business';
-import './BusinessList.css';
+import Business from './Business'; // Adjust the path as necessary
 
-class BusinessList extends React.Component{
-    render(){
-        return(
+const sampleBusinesses = [
+    {
+        imageSrc: 'https://content.codecademy.com/programs/react/ravenous/pizza.jpg',
+        name: 'MarginOtto Pizzeria',
+        address: '1010 Paddington Way',
+        city: 'Flavortown',
+        state: 'NY',
+        zipCode: '10101',
+        category: 'Italian',
+        rating: 4.5,
+        reviewCount: 90
+    },
+    {
+        imageSrc: 'https://content.codecademy.com/programs/react/ravenous/pizza.jpg',
+        name: 'MarginOtto Pizzeria',
+        address: '1010 Paddington Way',
+        city: 'Flavortown',
+        state: 'NY',
+        zipCode: '10101',
+        category: 'Italian',
+        rating: 4.5,
+        reviewCount: 90
+    }
+];
+
+class BusinessList extends React.Component {
+    render() {
+        return (
             <div className="BusinessList">
-               {
-                   this.props.businesses ? this.props.businesses.map((business) => {
-                   return <Business business={business} key={business.id} />
-                } 
-               ) : null
-            }
+                {
+                    sampleBusinesses.map((business, index) => {
+                        return <Business key={index} business={business} />
+                    })
+                }
             </div>
         );
     }

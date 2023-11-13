@@ -3,27 +3,30 @@ import './Business.css';
 
 class Business extends React.Component {
     render() {
+        const { business } = this.props;
+
         return (
             <div className="Business">
                 <div className="image-container">
-                    <img src="URL_OF_AN_IMAGE" alt="Business" />
+                    <img src={business.imageSrc} alt={business.name} />
                 </div>
-                <h2>Business Name</h2>
+                <h2>{business.name}</h2>
                 <div className="Business-information">
                     <div className="Business-address">
-                        <p>123 Main St</p>
-                        <p>Boulder</p>
-                        <p>CO 80301</p>
+                        <p>{business.address}</p>
+                        <p>{business.city}</p>
+                        <p>{`${business.state} ${business.zipCode}`}</p>
                     </div>
                     <div className="Business-reviews">
-                        <h3>CATEGORY</h3>
-                        <h3 className="rating">4.5 stars</h3>
-                        <p>90 reviews</p>
+                        <h3>{business.category}</h3>
+                        <h3 className="rating">{`${business.rating} stars`}</h3>
+                        <p>{`${business.reviewCount} reviews`}</p>
                     </div>
                 </div>
             </div>
         );
-    }    
+    }
 }
+
 
 export default Business;
